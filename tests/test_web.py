@@ -32,6 +32,10 @@ class TestWeb(asynctest.TestCase):
             app = web.Web(opsdroid)
             self.assertEqual(app.get_port, 8000)
 
+            opsdroid.config["web"] = {"port": "1234"}
+            app = web.Web(opsdroid)
+            self.assertEqual(app.get_port, 1234)
+
     async def test_web_get_host(self):
         """Check the host getter."""
         with OpsDroid() as opsdroid:

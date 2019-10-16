@@ -42,7 +42,7 @@ class Web:
 
         """
         try:
-            port = self.config["port"]
+            port = int(self.config["port"])
         except KeyError:
             if self.get_ssl_context is not None:
                 port = 8443
